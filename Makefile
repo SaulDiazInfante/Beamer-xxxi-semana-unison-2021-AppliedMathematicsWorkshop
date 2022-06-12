@@ -23,11 +23,11 @@ NAMETAR = "$(NAMETAR1)_Beamer_SIAM2021Sem_covid.tar.gz"
 NAMEZIP = "$(NAMETAR1)_Beamer_SIAM2021Sem_covid.zip"
 #main.aux
 pdflatex:main.tex
-	pdflatex --synctex=1 main.tex
-	# /usr/local/texlive/2019/bin/x86_64-linux/bibtex first_day_main.aux
+	/usr/local/texlive/2022/bin/x86_64-linux/pdflatex --synctex=1 main.tex
+	# /usr/local/texlive/2022/bin/x86_64-linux/bibtex first_day_main.aux
 	./biblio.sh
-	pdflatex --synctex=1 main.tex
-	pdflatex --synctex=1 main.tex
+	/usr/local/texlive/2022/bin/x86_64-linux/pdflatex --synctex=1 main.tex
+	/usr/local/texlive/2022/bin/x86_64-linux/pdflatex --synctex=1 main.tex
 
 clean:
 	rm -f $(OTHER) 
