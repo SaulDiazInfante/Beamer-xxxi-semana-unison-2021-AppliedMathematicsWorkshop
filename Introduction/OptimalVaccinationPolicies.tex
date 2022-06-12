@@ -1,0 +1,297 @@
+%!TEX root = ../main.tex
+\begin{frame}{Toy example and classic vaccination OC}
+    \setlength{\leftmargini}{1mm}
+    \begin{textblock*}{65mm}(0mm, 10mm)
+        \only<1->{
+            To fix ideas:
+            \begin{equation*}
+                \begin{aligned}
+                   S'(t) &= -\beta IS
+                   \\
+                   I'(t) &=  \beta IS - \gamma I
+                   \\
+                   R'(t) & = \gamma I
+                   \\
+                   & S(0) = S_0, I(0)=I_0, R(0)=0 
+                   \\
+                   & S(t) + I(t) + R(t )= 1
+                \end{aligned}
+            \end{equation*}
+        }
+     \end{textblock*}
+     %
+    \begin{textblock*}{65mm}(65mm, 10mm)
+        \only<2>{
+            With vaccination
+            \begin{equation*}
+                \begin{aligned}
+                   S'(t) &= -\beta IS  - \textcolor{red}{\lambda_V(t)}
+                   \\
+                   I'(t) &=  \beta IS - \gamma I
+                   \\
+                   R'(t) & = \gamma I
+                   \\
+                   V'(t) & = \textcolor{red}{\lambda_V(t)}
+                   \\
+                   & S(0) = S_0, I(0)=I_0, 
+                   \\
+                   &R(0)=0, V(0) = 0
+                   \\
+                   & S(t) + I(t) + R(t) + V(t)= 1
+                \end{aligned}
+            \end{equation*}
+        }
+     \end{textblock*}
+     \begin{textblock*}{65mm}(65mm, 10mm)
+        \only<3->{
+            \begin{equation*}
+                \begin{aligned}
+                   S'(t) &= -\beta IS  - \textcolor{red}{\lambda_V(x, t)}
+                   \\
+                   I'(t) &=  \beta IS - \gamma I
+                   \\
+                   R'(t) & = \gamma I
+                   \\
+                   V'(t) & = \textcolor{red}{\lambda_V(x,t)}
+                   \\
+                   & S(0) = S_0, I(0)=I_0, 
+                   \\
+                   &R(0)=0, V(0)=0
+                   \\
+                   & S(t) + I(t) + R(t) + V(t)= 1
+                   \\
+                   & x^{\top}=(S,I,R,V)
+                \end{aligned}
+            \end{equation*}
+        }
+     \end{textblock*}
+     \begin{textblock*}{28mm}(5mm, 45mm)
+        \only<3->{
+            \begin{block}{``Classic'' Vaccination}
+                \begin{itemize}          
+                    \item
+                    \only<4->{
+                        Gumel,
+                    }
+                    \only<6->{
+                        $$
+                            \lambda_V:= 
+                            \underbrace{ \textcolor{orange}{\xi}}_{cte.}
+                            \cdot \ S(t)
+                        $$
+                    }
+                    
+                \end{itemize}
+                \only<7->{
+                    Optimal Controlled:
+                }
+            \end{block}
+        }
+    \end{textblock*}
+
+     \begin{textblock*}{80mm}(45mm,48mm)
+        \only<6>{
+        \begin{bibunit}[apalike]
+            \nocite{Alexander2004,Iboi2020}
+            \putbib
+        \end{bibunit}
+        }
+        \only<7>{
+        \begin{bibunit}[apalike]
+            \nocite{Hethcote1973,Wickwire1977}
+            \putbib
+        \end{bibunit}
+        }
+     \end{textblock*}
+ \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{The Basic Optimization Question}
+    \setlength{\leftmargini}{1mm}
+    \begin{textblock*}{72.5mm}(0mm, 10mm)
+        \begin{graybox}{Hypothesis}
+            \begin{description}[leftmargin=!,
+            labelwidth=\widthof{\bfseries Jabs Counter}]
+
+                \only<1->{
+                \item[Cost]
+                    The \textbf{effort} expended in 
+                    ``\textbf{preventing-mitigating}
+                    an epidemic'' by vaccination is 
+                    \textbf{proportional} to the vaccination
+                    rate $\lambda_V$.
+                }
+                %
+                \only<2->{
+                \item[Jabs Counter]
+                    If $S(0)\approx 1$ , $X(\cdot):$ counts 
+                    vaccine doses, then
+                    $$
+                    X(t) = 1 - \exp(-\lambda_V t),
+                    $$
+                    estimates the fraction of vaccinated 
+                    individuals.
+                    Thus, for time horizon $T$ and 
+                    vaccination coverage %$X_{cov}$
+                }
+                    \only<3-6>{
+                        \begin{equation*}
+                            \begin{aligned}
+                                X_{cov} &= X(T)
+                                \\
+                                &\approx 
+                                    1 - \exp(-\textcolor{teal}{\lambda_V} T).
+                            \end{aligned}
+                        \end{equation*}
+                    }
+            \end{description}
+        \end{graybox}
+    \end{textblock*}
+    \begin{textblock*}{50mm}(75mm, 10mm)
+        \only<4->{
+            \begin{yellowbox}{{Given $X_{cov}$, \ $T$}}
+                $$
+                    \lambda_V = -\frac{1}{T} 
+                    \ln(1 - X_{cov})
+                $$
+                \textbf{estimates} the constant vaccination rate s.t., 
+                afther time $T$, we reach $X_{cov}$.
+            \end{yellowbox}
+        }
+        \only<5->{
+            \begin{greenbox}{{$X_{COV}: 70 \%$, $T$: one \SI{}{year}}}
+                $
+                    \lambda_V \approx \num{0.00329}
+                $
+                \tcblower
+                \only<6>{
+                    If $S(0) N$ corresponds to HMS
+                    (\SI{812229}{inhabitants})
+                    $
+                        % \num{0.00611352} \times \num{100000}
+                        \approx \SI{2668}{jabs \per day}.
+                    $
+                }
+                \only<7->{
+                    \textcolor{orange}{
+                    \textbf{
+                        How to optimize vaccination?}
+                    }
+                }
+            \end{greenbox}
+        }
+    \end{textblock*}
+    %--------------------------------------------------------------------------
+    \begin{textblock*}{62mm}(5mm, 70mm)
+        \only<8->{
+            \begin{block}{Common Objectives}
+                \begin{itemize}
+                    \item
+                    \only<9->{
+                       
+                        Who to vaccine first?    
+                        (Allocation) 
+                    }
+                    \item
+                    \only<10->{
+                        
+                        How and when?
+                        (Administration)
+                    }
+                \end{itemize}
+            \end{block}
+        }
+    \end{textblock*}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Vaccine optimiztion for COVID-19}
+    \begin{textblock*}{50mm}(5mm, 10mm)
+        \begin{block}{Common Objectives}
+           \begin{itemize}[label=$\mathbf{\star}$]
+                \item
+                    \textcolor<5>{orange}{
+                        Who to vaccine first?    
+                        (Allocation)
+                    } 
+                \only<2->{
+                    \item
+                         \textcolor<6->{orange}{
+                            How and when?
+                            \textbf<7>{
+                                (Administration)
+                            }                
+                         }
+                }
+                \only<3->{
+                    \item
+                         \textcolor<6->{orange}{
+                         \textbf<8>{
+                                Vaccination jointly with NPIs
+                                (Administration)
+                            }                
+                         }
+                }
+            \end{itemize}
+        \end{block}
+    \end{textblock*}
+%
+    \begin{textblock*}{55mm}(65mm, 10mm)     
+        \only<2->{
+            \begin{block}{%
+                \only<2-3>{Cost}
+                \only<4->{Optimal Control Problem}
+            }
+                \only<3>{
+                    \begin{equation*}
+                        \begin{aligned}
+                            % \min_{\mathbf{u} \in \mathcal{U}}
+                            J(u) := &
+                            \varphi(x(T)) + 
+                            \int_0 ^  T
+                                f(t, x(t), u(t))
+                        \end{aligned}
+                    \end{equation*}
+                }
+                \only<4->{
+                    \begin{equation*}
+                        \begin{aligned}
+                            \min_{\mathbf{u} \in \mathcal{U}}
+                                J(u) = &
+                                \varphi(x(T)) + 
+                                \int_0 ^  T
+                                    f(t, x(t), u(t))
+                            \\
+                            \dot{x}(t) =& b(t,u(t), x(t)), 
+                            \qquad \text{a.e. }t \in[0,T],
+                            \\
+                                x(0)=& x_0
+                        \end{aligned}
+                    \end{equation*}
+                }
+            \end{block}
+        }
+    \end{textblock*}
+    %
+    \begin{textblock*}{110mm}(10mm, 45mm)
+        \only<5>{
+            \begin{bibunit}[apalike]
+                \nocite{Matrajt2020,Bubar2020,Buckner2020}
+                \putbib
+            \end{bibunit}
+        }
+        \only<6-7>{
+        \begin{bibunit}[apalike]
+            \nocite{Zegarra2020, Salcedo-Varela2021}
+            \putbib
+        \end{bibunit}
+        }
+        \only<8>{
+            \begin{textblock*}{65mm}(30mm, 55mm)
+                \begin{yellowbox}{Aim of this talk}
+                    To illustrate the formulation of optimal 
+                    Lockdown-vaccination policies
+                    based in piecewise constant poicies.
+                \end{yellowbox}
+            \end{textblock*}
+        }   
+    \end{textblock*}
+\end{frame}

@@ -1,0 +1,174 @@
+%!TEX root = ../main.tex
+\begin{frame}{Model Scheme}
+    \setlength{\leftmargini}{1mm}
+    \begin{textblock*}{65mm}(0mm, 10mm)
+        \begin{equation*}
+            \begin{aligned}
+                L' =
+                     &  \theta \mu N^{\star}
+                     -(\epsilon \lambda + \delta_L + \lambda_V +\mu) L
+             \\
+                 S' =&
+                     (1 - \theta) \mu N^\star
+                     + \delta_L L
+                     + \delta_V V
+                     + \delta_R R
+             \\
+                 &-
+                 \left(
+                     \lambda + \lambda_V + \mu
+                 \right) S
+             \\
+                 E' =&
+                     \lambda (\epsilon L + (1-\varepsilon) V + S)
+                  - (\kappa + \mu) E
+             \\
+                 I_S' =&
+                     p \kappa E
+                     -
+                     (
+                         \delta_H +
+                         \gamma_S +
+                         \mu_{I_S} +
+                         \mu
+                     ) I_S
+             \\
+                 I_A' = &
+                     (1 - p) \kappa E - (\gamma_A + \mu) I_A
+             \\
+                 H' = &
+                     \delta_H I_S - (\gamma_H + \mu_H + \mu) H
+             \\
+                 R' = &
+                     \gamma_S I_S +
+                     \gamma_A I_A +
+                     \gamma_H H
+                     - (\delta_R + \mu) R
+             \\
+                 D'  = &
+                     \mu_{I_S} I_S + \mu_H H
+             \\
+                 V' = &
+                     \lambda_V  (S + L)
+                     - \left[
+                         (1 - \varepsilon) \lambda
+                         + \delta_V
+                         + \mu
+                     \right ] V
+             \\
+                 \lambda &:=
+                     \frac{\beta_A I_A + \beta_S I_S}{N^{\star}}
+             \\
+                 N^{\star}(t) &=
+                     L + S +E + I_S + I_A +
+                  H + R + V .
+            \end{aligned}
+        \end{equation*}
+    \end{textblock*}
+
+    \begin{textblock*}{65mm}(60mm, 10mm)
+         \begin{equation*}
+             \begin{aligned}
+                     \frac{dX_{vac}}{dt}
+                         &=
+                     \lambda_V
+                     \left[
+                         L + S + E + I_A + R
+                     \right]
+                 \\
+                     \frac{d Y_{I_S}}{dt}
+                         & = p \kappa E
+                 \\
+                     L(0) &= L_0, \ S(0) = S_0,
+                     \ E(0) = E_0,
+                 \\
+                 I_S(0) &= I_{S_{0}},
+                 I_A(0) = I_{A_{0}},
+                 H(0) = H_0,
+                 \\
+                 R(0) &= R_0, \ D(0) = D_0, \ V(0) = 0,
+                 \\
+                 X_{vac}(0) & = 0, \quad
+                 X_{vac}(T) = x_{coverage},
+             \end{aligned}
+         \end{equation*}    
+    \end{textblock*}
+
+    \begin{textblock*}{60mm}(65mm, 47mm)
+        \only<3->{
+            \begin{bluebox}{Vaccine Hypotheses}
+                \begin{itemize}
+    %                 %TODO: change bullet indentation
+                     \item
+                         Imperfect preventive
+                     \item
+                         One dose
+                     \item
+                         Symptomatic exception
+                     \item
+                         Action over susceptible
+                 \end{itemize}
+                 \tcblower
+                 LOCKDOWN: 
+                 Reduced infection and 
+                 bidirectional migration to
+                 Susceptible class.
+            \end{bluebox}
+        }
+    \end{textblock*}
+    
+
+    % \begin{textblock*}{75mm}(5mm, 57mm)
+    % \only<4->{
+    %     \begin{bluebox}{Notation}
+    %         \begin{tabular}{rl}
+    %             $1/\delta_V$
+    %             &
+    %             Vaccination induced immunity
+    %             \\
+    %             $1 / \delta_R$
+    %             &
+    %             Natural recovering immunity
+    %             \\
+    %             $\lambda_V$
+    %             &
+    %             Vaccination rate
+    %             \\
+    %             $\epsilon$
+    %             & Vaccine efficiency
+    %             \\
+    %             $p$
+    %             & Generation of symptoms  probability
+    %             % \\
+    %             % $u_V(t)$
+    %             % & Optimal vaccination policy
+    %         \end{tabular}
+    %     \end{bluebox}
+    %     }
+    % \end{textblock*}
+%
+    % \begin{textblock*}{45mm}(82mm, 47mm)
+    %     \only<5->{
+    %         \begin{bluebox}{SAGE objectives}
+    %             \begin{itemize}
+    %                 \item
+    %                     Vaccine profile (Efficacy, immunity)
+    %                 \item
+    %                     Coverage
+    %                 \item
+    %                     Time Horizon
+    %             \end{itemize}
+    %             \tcblower
+    %             \only<6->{
+    %                 Immunity:
+    %                 \begin{itemize}
+    %                     \item
+    %                         natural (reinfection)
+    %                     \item
+    %                         vaccine-induced 
+    %                 \end{itemize}
+    %             }
+    %         \end{bluebox}
+    %     }
+    % \end{textblock*}
+\end{frame}

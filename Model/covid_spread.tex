@@ -1,0 +1,24 @@
+%!TEX root = ../main.tex
+\begin{frame}{The Model Without Vaccination}
+        \setlength{\leftmargini}{1mm}
+    \begin{textblock*}{65mm}(2mm, 15mm)
+        \only<1>{
+            \includegraphics[scale=0.65,
+                keepaspectratio]{assets/NonControlledSchemes/Diagram_no_Vaccination.pdf}
+        }
+    \end{textblock*}
+    %
+    \begin{textblock*}{65mm}(25mm, 80mm)
+        \begin{equation*}
+            \begin{aligned}
+                \lambda &:=
+                    \frac{\beta_A I_A + \beta_S I_S}{N^{\star}},
+                \\
+                N^{\star}(t) &=
+                    L + S + E +
+                    I_S + I_A +
+                    H + R .
+            \end{aligned}
+        \end{equation*}
+    \end{textblock*}
+\end{frame}
