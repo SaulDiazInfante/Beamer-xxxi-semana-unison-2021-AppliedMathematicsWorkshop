@@ -1,0 +1,113 @@
+\documentclass[9pt]{beamer}
+\usepackage[sfdefault]{roboto}
+\usepackage{styles/fluxmacros}
+\usefolder{styles}
+\usetheme[style=asphalt]{flux}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
+\usepackage{siunitx}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{thumbpdf}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{url}
+\usepackage{empheq}
+\usepackage{fancybox}
+\usepackage{esint}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{tikz}%
+\usepackage{circuitikz}
+\usepackage{csvsimple}
+\usepackage{pgfplots}
+\usepackage{multimedia}
+\usepackage{proba}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{bibunits}
+\usepackage{tcolorbox}
+\usepackage{qrcode}
+%\usepackage[texcoord,
+            % grid,
+            % gridunit=mm,
+            % gridcolor=red!60,
+            % subgridcolor=black!60]{eso-pic}
+\usepackage{enumerate}
+\setbeamercovered{transparent}
+%% Informations
+\usepackage[makeroom]{cancel}
+\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{calc}  
+\usepackage{enumitem}
+\usepackage{algorithm,algcompatible}
+%\usepackage{algorithm2e}
+\usepackage{float}
+
+\epstopdfsetup{outdir=./}
+\mode<presentation>
+{
+    %\usetheme{PaloAlto}
+    %\usecolortheme[named=kugreen]{structure}
+    \useinnertheme{progressbar}
+    %\usefonttheme{default}
+    %\usefonttheme{serif}
+    %\setbeamercovered{transparent}
+    %\setbeamertemplate{blocks}[rounded][shadow=true]
+    %\setbeamertemplate{navigation symbols}[only frame symbol]
+}
+%
+%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Informations
+\defaultbibliography{main}
+%
+\title{\LARGE{Optimal piecewise constant vaccination and lockdown }}
+\subtitle{%
+    policies for COVID-19, \\
+    \today 
+    %  
+}
+%\author{}
+\date{May 25 2021}
+%
+%\titlegraphic{assets/logo-NOMA.jpeg}
+%\titlegraphic{assets/logo-unison.png}
+\titlegraphic{assets/logoSIAM.png}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\input{setup}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+%
+\begin{document}
+    \titlepage
+    \section*{Introduction}
+        \input{Introduction/OptimalVaccinationPolicies}
+    \section{The model without vaccination}
+        \input{Model/covid_spread}
+        \input{Model/model}
+    \section{Reproductive Vaccination Number}
+         \input{vaccination_r_not/r_not}
+     \section{Optimal Control Problem (OCP)}
+         \input{OptimalControlPoblem/optimal_control_problem}
+     \section{Numerical Results}
+         \include{VaccinationScenes/vaccination_scenes}
+     \section{Final comments}
+         \input{final_comments.tex}
+     \begin{frame}[allowframebreaks]
+         \frametitle{References}
+         \bibliographystyle{acm}
+         \bibliography{main.bib}
+     \end{frame}
+\end{document}
